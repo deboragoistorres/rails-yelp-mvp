@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-cont = 1
 puts 'Creating 5 fake restaurants...'
 7.times do
   restaurant = Restaurant.new(
@@ -18,12 +17,13 @@ puts 'Creating 5 fake restaurants...'
     phone_number: Faker::PhoneNumber.phone_number
   )
   restaurant.save!
-  review = Review.new(
-    restaurant: Restaurant.find(cont),
-    content: Faker::Restaurant.review,
-    rating: [0, 1, 2, 3, 4, 5].sample
-  )
-  review.save!
-  cont += 1
+  5.times do
+    review = Review.new(
+      restaurant_id: restaurant.id,
+      content: Faker::Restaurant.review,
+      rating: [0, 1, 2, 3, 4, 5].sample
+    )
+    review.save!
+  end
 end
 puts 'Finished!'
