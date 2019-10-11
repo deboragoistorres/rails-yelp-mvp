@@ -1,5 +1,7 @@
+<div class="container bg-light">
+
 <% @restaurants.each do |restaurant| %>
-  <h2><%= restaurant.name %></h2>
+  <h2><%= link_to restaurant.name, "restaurants/#{restaurant.id}" %></h2>
   <p><%= restaurant.address %></p>
   <p><%= restaurant.category %></p>
   <p><%= restaurant.phone_number %></p>
@@ -9,7 +11,5 @@
   <p><%= review.rating %></p>
 <% end %>
 
-
-
 <% end %>
-
+</div>

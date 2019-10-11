@@ -1,2 +1,6 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+# app/views/reviews/new.html.erb
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+  <%= link_to 'Voltar para o menu', restaurants_path, class:'btn bg-light mp-5'%>
+<% end %>
