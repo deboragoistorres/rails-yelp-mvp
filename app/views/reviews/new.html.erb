@@ -1,6 +1,14 @@
 # app/views/reviews/new.html.erb
 <%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
+  <div classs='form-group'>
+    <%= f.label :rating %>
+    <%= f.select :rating, [0, 1, 2, 3, 4, 5], class:'form-control sm-3 mb-2 pb-5' %>
+  </div>
+    <div>
+      <%= f.label :content %>
+      <%= f.input :content %>
+    </div>
+
   <%= f.submit "add a review", class: "btn btn-primary" %>
   <%= link_to 'Voltar para o menu', restaurants_path, class:'btn bg-light mp-5'%>
 <% end %>
